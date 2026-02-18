@@ -1,0 +1,29 @@
+{
+  "name": "abyssal-bot",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "rest": "bun run src/core/rest/index.ts",
+    "bot": "bun run src/core/bot/index.ts",
+    "gateway": "bun run src/core/gateway/index.ts",
+    "register": "bun run src/core/bot/register.ts",
+    "format": "bunx prettier --write ."
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.8.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@fastify/env": "^5.0.3",
+    "@fastify/helmet": "^13.0.2",
+    "@fastify/multipart": "^9.4.0",
+    "@influxdata/influxdb-client": "^1.35.0",
+    "discordeno": "22.0.1-next.f29ab92",
+    "fastify": "^5.7.4",
+    "redis": "^5.11.0"
+  }
+}
