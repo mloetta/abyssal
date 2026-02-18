@@ -1,10 +1,10 @@
-# Terms of Service (TOS) – Forger
+# Terms of Service (TOS) – Abyssal
 
 **1. Acceptance of Terms**  
-By using Forger (the "Bot"), whether in Discord servers or as a User App on your personal account, you agree to these Terms of Service ("Terms"). If you do not agree, do not use the Bot.
+By using Abyssal (the "Bot"), whether in Discord servers or as a User App on your personal account, you agree to these Terms of Service ("Terms"). If you do not agree, do not use the Bot.
 
 **2. Bot Purpose**  
-Forger is a Discord bot designed for browsing and analyzing game content related to the Forge game system, including weapons, armor, ores, and pickaxes. The Bot operates both as a server bot and as a personal User App, providing information caching, game data browsing, performance analytics, and internal improvement features.
+Abyssal is a Discord bot designed for browsing and analyzing game content related to the Forge game system, including weapons, armor, ores, and pickaxes. The Bot operates both as a server bot and as a personal User App, providing information caching, game data browsing, performance analytics, and internal improvement features.
 
 **3. Core Functionalities**
 
@@ -23,7 +23,7 @@ Forger is a Discord bot designed for browsing and analyzing game content related
 
 **5. Data Collection and Storage**
 
-Forger collects the following information:
+Abyssal collects the following information:
 
 - **User Identification**: Discord username and user ID
 - **Guild Context**: Guild ID and Guild Owner ID (when used in servers)
@@ -42,7 +42,7 @@ This data is used exclusively for:
 
 **6. Third-Party Data**
 
-Forger does not intentionally share user data with third parties. However:
+Abyssal does not intentionally share user data with third parties. However:
 
 - Bug reports are stored in a dedicated Discord forum channel within our support server
 - Analytics data may be stored in InfluxDB instances under the developer's control
@@ -57,14 +57,14 @@ Forger does not intentionally share user data with third parties. However:
 
 **8. Intellectual Property**
 
-- The Forger name, branding, and associated identifiers remain the intellectual property of the developer
+- The Abyssal name, branding, and associated identifiers remain the intellectual property of the developer
 - The Bot's source code is licensed under the MIT License
 - Use, modification, and distribution of the source code are permitted in accordance with the MIT License terms
 - Nothing in these Terms restricts rights expressly granted under the MIT License
 
 **9. Limitation of Liability**
 
-Forger is provided on an "as-is" basis. The developer:
+Abyssal is provided on an "as-is" basis. The developer:
 
 - Makes reasonable efforts to maintain the Bot's stability, security, and functionality
 - Does NOT guarantee uninterrupted or error-free operation

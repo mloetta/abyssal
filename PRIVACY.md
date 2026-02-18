@@ -1,8 +1,8 @@
-# Privacy Policy – Forger
+# Privacy Policy – Abyssal
 
 **1. Overview**
 
-Forger is a Discord bot that provides game content browsing and analytics features. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data. This policy is effective immediately and applies to all users of Forger, whether using it in Discord servers or as a personal User App.
+Abyssal is a Discord bot that provides game content browsing and analytics features. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data. This policy is effective immediately and applies to all users of Abyssal, whether using it in Discord servers or as a personal User App.
 
 **2. Information We Collect**
 
@@ -126,7 +126,7 @@ To request these, contact the bot developer via our support server.
 
 **9. Children's Privacy**
 
-Forger is not directed to users under 13 years old (or applicable age in your jurisdiction). If we discover we've collected data from children, we will delete it immediately.
+Abyssal is not directed to users under 13 years old (or applicable age in your jurisdiction). If we discover we've collected data from children, we will delete it immediately.
 
 **10. Your Privacy Rights**
 
@@ -162,7 +162,7 @@ For users in the European Union, additional rights apply under GDPR:
 - Right to restrict processing
 - Right to object to processing
 
-Although Forger is governed by Brazilian law, we respect GDPR rights. Please contact the developer to exercise these rights.
+Although Abyssal is governed by Brazilian law, we respect GDPR rights. Please contact the developer to exercise these rights.
 
 **12. Policy Changes**
 
@@ -173,7 +173,7 @@ We may update this Privacy Policy to reflect:
 - Legal or regulatory requirements
 - Improved transparency
 
-Changes will be posted to this page. Continued use of Forger after updates constitutes acceptance of the new policy.
+Changes will be posted to this page. Continued use of Abyssal after updates constitutes acceptance of the new policy.
 
 **13. Contacting Us**
 
