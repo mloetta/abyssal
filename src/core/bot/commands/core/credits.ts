@@ -36,8 +36,7 @@ createApplicationCommand({
             },
             {
               type: MessageComponentTypes.TextDisplay,
-              content:
-                '## Contributors\n@wolfypro - Host Provider',
+              content: '## Contributors\n@wolfypro - Host Provider\n@daemi_rukiru\n@rpcvz',
             },
             {
               type: MessageComponentTypes.Separator,

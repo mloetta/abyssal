@@ -1,7 +1,13 @@
 import { commandOptionsParser, createLogger, InteractionTypes, MessageComponentTypes, MessageFlags } from 'discordeno';
 import { check } from 'middlewares/cooldown';
 import { codeblock, highlight, icon, link, pill, smallPill, stringwrapPreserveWords, timestamp } from 'utils/markdown';
-import { TimestampStyle, type Interaction, type CollectorType, type ApplicationCommand } from 'types/types';
+import {
+  ApplicationCommandCategory,
+  TimestampStyle,
+  type Interaction,
+  type CollectorType,
+  type ApplicationCommand,
+} from 'types/types';
 import createEvent from 'helpers/event';
 import { bot } from 'bot/bot';
 import { PermissionManager } from 'middlewares/permission';
@@ -250,6 +256,11 @@ async function handleApplicationCommand(interaction: Interaction) {
     }
 
     await command.run(bot, interaction, commandOptionsParser(interaction));
+
+    if (command.details.category === ApplicationCommandCategory.Abyss) {
+      await redis.hIncrBy(`abyss:usage:${interaction.user.id}`, `${command.name}:${interaction.data!.id}`, 1);
+      await redis.incrBy(`abyss:usage:${interaction.user.id}:total`, 1);
+    }
   } catch (e) {
     logger.error(`Command ${command.name} has errored.`, e);
 

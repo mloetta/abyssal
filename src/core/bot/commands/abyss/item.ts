@@ -5,14 +5,15 @@ import {
   DiscordInteractionContextType,
   MessageComponentTypes,
   MessageFlags,
+  type MessageComponents,
 } from 'discordeno';
 import createApplicationCommand from 'helpers/command';
 import { ApplicationCommandCategory, RequestMethod, ResponseType } from 'types/types';
 import { makeRequest } from 'utils/request';
 
 createApplicationCommand({
-  name: 'fih',
-  description: 'Views information about the selected fish.',
+  name: 'item',
+  description: 'Views information about the selected item.',
   details: {
     category: ApplicationCommandCategory.Abyss,
     cooldown: 5,
@@ -25,8 +26,8 @@ createApplicationCommand({
   ],
   options: [
     {
-      name: 'fish',
-      description: 'Pick a fish to view information about.',
+      name: 'item',
+      description: 'Pick an item to view information about.',
       type: ApplicationCommandOptionTypes.String,
       required: true,
       autocomplete: true,
@@ -40,7 +41,7 @@ createApplicationCommand({
         ?.value?.toString()
         .toLowerCase() ?? '';
 
-    const fishes = await makeRequest('http://localhost:9999/fishes', {
+    const items = await makeRequest('http://localhost:9999/items', {
       method: RequestMethod.GET,
       response: ResponseType.JSON,
       headers: {
@@ -48,26 +49,26 @@ createApplicationCommand({
       },
     });
 
-    const choices = fishes
-      .filter((fish: any) => {
+    const choices = items
+      .filter((item: any) => {
         if (!focused) return true;
 
-        return fish.name.toLowerCase().includes(focused);
+        return item.name.toLowerCase().includes(focused);
       })
       .slice(0, 25)
-      .map((fish: any) => ({
-        name: fish.name,
-        value: fish.name,
+      .map((item: any) => ({
+        name: item.name,
+        value: item.name,
       }));
 
     return interaction.respond({ choices });
   },
   async run(bot, interaction, options) {
-    const fish = await makeRequest(`http://localhost:9999/fishes`, {
+    const item = await makeRequest(`http://localhost:9999/items`, {
       method: RequestMethod.GET,
       response: ResponseType.JSON,
       params: {
-        name: options.fish,
+        name: options.item,
       },
       headers: {
         'x-api-key': ABYSS_API_KEY,
@@ -84,37 +85,36 @@ createApplicationCommand({
               components: [
                 {
                   type: MessageComponentTypes.TextDisplay,
-                  content: `# ${fish.name}\n-# ${fish.rarity}${fish.note ? ` *- ${fish.note}*` : ''}${fish.description ? `\n*${fish.description}*` : ''}`,
+                  content: `# ${item.name}\n-# ${item.rarity}${item.note ? ` *- ${item.note}*` : ''}${item.description ? `\n*${item.description}*` : ''}`,
                 },
               ],
               accessory: {
                 type: MessageComponentTypes.Thumbnail,
                 media: {
-                  url: fish.image,
+                  url: item.image,
                 },
               },
             },
-            {
-              type: MessageComponentTypes.ActionRow,
-              components: [
-                {
-                  type: MessageComponentTypes.StringSelect,
-                  customId: 'fish-location',
-                  placeholder: 'Located:',
-                  options: fish.located.map((loc: any) => ({
-                    label: loc,
-                    value: loc,
-                  })),
-                },
-              ],
-            },
-            {
-              type: MessageComponentTypes.Separator,
-            },
-            {
-              type: MessageComponentTypes.TextDisplay,
-              content: `## Information:\n- Minigame Threshold: **${fish.minigame_threshold}**\n- Health: **${fish.health}**\n- Weight: **${fish.weight.min} - ${fish.weight.max}**\n- Base Price: **${fish.base_price}**\n- Behavior: **${fish.behavior}**${fish.damage ? `\n- Damage: **${fish.damage}**` : ''}`,
-            },
+            ...(item.obtained_from
+              ? ([
+                  {
+                    type: MessageComponentTypes.ActionRow,
+                    components: [
+                      {
+                        type: MessageComponentTypes.StringSelect,
+                        customId: 'item-obtained-from',
+                        placeholder: 'Obtained From:',
+                        options: [
+                          {
+                            label: item.obtained_from,
+                            value: item.obtained_from,
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ] satisfies MessageComponents)
+              : []),
           ],
         },
       ],

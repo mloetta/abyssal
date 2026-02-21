@@ -95,18 +95,20 @@ createApplicationCommand({
               },
             },
             {
-                type: MessageComponentTypes.ActionRow,
-                components: [
+              type: MessageComponentTypes.ActionRow,
+              components: [
+                {
+                  type: MessageComponentTypes.StringSelect,
+                  customId: 'artifact-obtained-from',
+                  placeholder: 'Obtained From:',
+                  options: [
                     {
-                        type: MessageComponentTypes.StringSelect,
-                        customId: 'artifact-obtained-from',
-                        placeholder: 'Obtained From:',
-                        options: [{
-                            label: artifact.obtained_from,
-                            value: artifact.obtained_from,
-                        }]
-                    }
-                ]
+                      label: artifact.obtained_from,
+                      value: artifact.obtained_from,
+                    },
+                  ],
+                },
+              ],
             },
             {
               type: MessageComponentTypes.Separator,

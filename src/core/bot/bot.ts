@@ -59,6 +59,8 @@ const desiredProperties = createDesiredPropertiesObject({
     permissions: true,
   },
   user: {
+    avatar: true,
+    discriminator: true,
     id: true,
     username: true,
   },

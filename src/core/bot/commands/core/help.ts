@@ -13,7 +13,7 @@ import {
 import { createCollector } from 'helpers/collector';
 import createApplicationCommand from 'helpers/command';
 import { ApplicationCommandCategory, type Interaction } from 'types/types';
-import { icon, iconAsEmoji, link } from 'utils/markdown';
+import { icon, iconAsEmoji, link, pill } from 'utils/markdown';
 import or from 'utils/utils';
 
 createApplicationCommand({
@@ -38,19 +38,22 @@ createApplicationCommand({
           components: [
             {
               type: MessageComponentTypes.TextDisplay,
-              content:
-                '# Welcome to Abyssal!\nYou can view all the available commands by typing **` / `**, then clicking on my profile.',
+              content: `# Welcome to Abyssal!\nYou can view all the available commands by typing ${pill('/')}, for further game assistance which the bot may or may not display go to ${link('https://abysswiki.org/wiki/Abyss_Wiki', 'the official wiki')}.`,
             },
             {
               type: MessageComponentTypes.Separator,
               divider: false,
             },
             {
+              type: MessageComponentTypes.TextDisplay,
+              content: '## How to report bugs?',
+            },
+            {
               type: MessageComponentTypes.Section,
               components: [
                 {
                   type: MessageComponentTypes.TextDisplay,
-                  content: '## How to report bugs?\nYou can report bugs by clicking the button in the right.',
+                  content: 'To report bugs simply click the button on the right.',
                 },
               ],
               accessory: {
@@ -102,6 +105,7 @@ createApplicationCommand({
     const collector = createCollector<Interaction>({
       key: 'help-collector',
       filter: (i) => i.user.id === interaction.user.id,
+      duration: 5 * 60 * 1000, // 5 minutes
     });
     collectors.add(collector);
 
@@ -244,6 +248,79 @@ createApplicationCommand({
           flags: MessageFlags.IsComponentsV2 | MessageFlags.Ephemeral,
         });
       }
+    });
+
+    collector.once('dispose', async () => {
+      await interaction.edit({
+        components: [
+          {
+            type: MessageComponentTypes.Container,
+            components: [
+              {
+                type: MessageComponentTypes.TextDisplay,
+                content: `# Welcome to Abyssal!\nYou can view all the available commands by typing ${pill('/')}, for further game assistance which the bot may or may not display go to ${link('https://abysswiki.org/wiki/Abyss_Wiki', 'the official wiki')}.`,
+              },
+              {
+                type: MessageComponentTypes.Separator,
+                divider: false,
+              },
+              {
+                type: MessageComponentTypes.TextDisplay,
+                content: '## How to report bugs?',
+              },
+              {
+                type: MessageComponentTypes.Section,
+                components: [
+                  {
+                    type: MessageComponentTypes.TextDisplay,
+                    content: 'To report bugs simply click the button on the right.',
+                  },
+                ],
+                accessory: {
+                  type: MessageComponentTypes.Button,
+                  customId: 'bug-reports-button',
+                  label: 'Report Bugs',
+                  emoji: iconAsEmoji('Bug'),
+                  style: ButtonStyles.Secondary,
+                },
+              },
+              {
+                type: MessageComponentTypes.Separator,
+                divider: true,
+              },
+              {
+                type: MessageComponentTypes.TextDisplay,
+                content: `-# ${icon('Exclamation')} You can visit **${link('https://discord.com/blog/slash-commands-permissions-discord-apps-bots', 'Discord Integration Settings')}** to learn how to disable commands.`,
+              },
+              {
+                type: MessageComponentTypes.Separator,
+                spacing: SeparatorSpacingSize.Small,
+                divider: false,
+              },
+              {
+                type: MessageComponentTypes.ActionRow,
+                components: [
+                  {
+                    type: MessageComponentTypes.Button,
+                    label: 'Support Server',
+                    emoji: iconAsEmoji('Discord'),
+                    url: SUPPORT_SERVER,
+                    style: ButtonStyles.Link,
+                  },
+                  {
+                    type: MessageComponentTypes.Button,
+                    label: 'Invite Me!',
+                    emoji: iconAsEmoji('Link'),
+                    url: INVITE_LINK,
+                    style: ButtonStyles.Link,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        flags: MessageFlags.IsComponentsV2,
+      });
     });
   },
 });

@@ -108,7 +108,7 @@ export interface CollectorData<T> {
 
 export interface ApplicationCommand<
   T extends ApplicationCommandOptions = ApplicationCommandOptions,
-> extends CreateApplicationCommand {
+> extends Omit<CreateApplicationCommand, 'defaultMemberPermissions'> {
   details: Details;
   preconditions?: Precondition;
   permissions?: CommandPermission;
