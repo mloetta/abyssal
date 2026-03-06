@@ -106,9 +106,10 @@ export interface CollectorData<T> {
   listener: EventListener<CollectorEvents<T>>;
 }
 
-export interface ApplicationCommand<
-  T extends ApplicationCommandOptions = ApplicationCommandOptions,
-> extends Omit<CreateApplicationCommand, 'defaultMemberPermissions'> {
+export interface ApplicationCommand<T extends ApplicationCommandOptions = ApplicationCommandOptions> extends Omit<
+  CreateApplicationCommand,
+  'defaultMemberPermissions'
+> {
   details: Details;
   preconditions?: Precondition;
   permissions?: CommandPermission;

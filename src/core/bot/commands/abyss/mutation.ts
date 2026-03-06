@@ -99,7 +99,7 @@ createApplicationCommand({
             },
             {
               type: MessageComponentTypes.TextDisplay,
-              content: `## Information:\n- Money Multiplier: **${mutation.money_multiplier}x**\n- Speed Multiplier: **${mutation.speed_multiplier}x**\n- Weight Multiplier: **${mutation.weight_multiplier}x**`,
+              content: `- Money Multiplier: **${mutation.money_multiplier}x**\n- Speed Multiplier: **${mutation.speed_multiplier}x**\n- Weight Multiplier: **${mutation.weight_multiplier}x**`,
             },
           ],
         },

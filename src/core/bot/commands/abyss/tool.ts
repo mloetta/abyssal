@@ -99,7 +99,7 @@ createApplicationCommand({
             },
             {
               type: MessageComponentTypes.TextDisplay,
-              content: `## Information:\n- Cost: **${tool.cost}**${tool.damage ? `\n- Damage: **${tool.damage}**` : ''}${tool.cooldown ? `\n- Cooldown: **${tool.cooldown}s**` : ''}${tool.control ? `\n- Control: **${tool.control}**` : ''}${tool.oxygen ? `\n- Oxygen: **${tool.oxygen}**` : ''}${tool.max_depth ? `\n- Max Depth: **${tool.max_depth}m**` : ''}${tool.speed ? `\n- Speed: **${tool.speed}**` : ''}${tool.weight ? `\n- Weight: **${tool.weight}**` : ''}${tool.usage ? `\n- Usage: **${tool.usage}**` : ''}`,
+              content: `- Cost: **${tool.cost}**${tool.damage ? `\n- Damage: **${tool.damage}**` : ''}${tool.cooldown ? `\n- Cooldown: **${tool.cooldown}s**` : ''}${tool.control ? `\n- Control: **${tool.control}**` : ''}${tool.oxygen ? `\n- Oxygen: **${tool.oxygen}**` : ''}${tool.max_depth ? `\n- Max Depth: **${tool.max_depth}m**` : ''}${tool.speed ? `\n- Speed: **${tool.speed}**` : ''}${tool.weight ? `\n- Weight: **${tool.weight}**` : ''}${tool.usage ? `\n- Usage: **${tool.usage}**` : ''}`,
             },
           ],
         },

@@ -99,7 +99,7 @@ createApplicationCommand({
             },
             {
               type: MessageComponentTypes.TextDisplay,
-              content: `## Information:\n- Reroll Chance: **${race.reroll_chance}**\n- Lucky Reroll Chance: **${race.lucky_reroll_chance}**`,
+              content: `- Reroll Chance: **${race.reroll_chance}**\n- Lucky Reroll Chance: **${race.lucky_reroll_chance}**`,
             },
             {
               type: MessageComponentTypes.Separator,

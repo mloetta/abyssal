@@ -1,4 +1,4 @@
-import { ABYSS_API_KEY } from 'core/variables';
+  import { ABYSS_API_KEY } from 'core/variables';
 import {
   ApplicationCommandOptionTypes,
   DiscordApplicationIntegrationType,
@@ -115,7 +115,31 @@ createApplicationCommand({
             },
             {
               type: MessageComponentTypes.TextDisplay,
-              content: `## Information:${artifact.speed ? `\n- Speed: **${typeof artifact.speed === 'object' ? `${artifact.speed.min} - ${artifact.speed.max}` : artifact.speed}**` : ''}${artifact.damage ? `\n- Damage: **${typeof artifact.damage === 'object' ? `${artifact.damage.min} - ${artifact.damage.max}` : artifact.damage}**` : ''}${artifact.oxygen ? `\n- Oxygen: **${typeof artifact.oxygen === 'object' ? `${artifact.oxygen.min} - ${artifact.oxygen.max}` : artifact.oxygen}**` : ''}${artifact.cooldown ? `\n- Cooldown: **${typeof artifact.cooldown === 'object' ? `${artifact.cooldown.min} - ${artifact.cooldown.max}` : artifact.cooldown}**` : ''}${artifact.weight ? `\n- Weight: **${typeof artifact.weight === 'object' ? `${artifact.weight.min} - ${artifact.weight.max}` : artifact.weight}**` : ''}${artifact.XP ? `\n- XP: **${typeof artifact.XP === 'object' ? `${artifact.XP.min} - ${artifact.XP.max}` : artifact.XP}**` : ''}${artifact.cash ? `\n- Cash: **${typeof artifact.cash === 'object' ? `${artifact.cash.min} - ${artifact.cash.max}` : artifact.cash}**` : ''}`,
+              content: [
+                artifact.speed
+                  ? `- Speed: **${typeof artifact.speed === 'object' ? `${artifact.speed.min} - ${artifact.speed.max}` : artifact.speed}**`
+                  : '',
+                artifact.damage
+                  ? `- Damage: **${typeof artifact.damage === 'object' ? `${artifact.damage.min} - ${artifact.damage.max}` : artifact.damage}**`
+                  : '',
+                artifact.oxygen
+                  ? `- Oxygen: **${typeof artifact.oxygen === 'object' ? `${artifact.oxygen.min} - ${artifact.oxygen.max}` : artifact.oxygen}**`
+                  : '',
+                artifact.cooldown
+                  ? `- Cooldown: **${typeof artifact.cooldown === 'object' ? `${artifact.cooldown.min} - ${artifact.cooldown.max}` : artifact.cooldown}**`
+                  : '',
+                artifact.weight
+                  ? `- Weight: **${typeof artifact.weight === 'object' ? `${artifact.weight.min} - ${artifact.weight.max}` : artifact.weight}**`
+                  : '',
+                artifact.XP
+                  ? `- XP: **${typeof artifact.XP === 'object' ? `${artifact.XP.min} - ${artifact.XP.max}` : artifact.XP}**`
+                  : '',
+                artifact.cash
+                  ? `- Cash: **${typeof artifact.cash === 'object' ? `${artifact.cash.min} - ${artifact.cash.max}` : artifact.cash}**`
+                  : '',
+              ]
+                .filter(Boolean)
+                .join('\n'),
             },
           ],
         },

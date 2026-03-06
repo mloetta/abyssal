@@ -113,7 +113,7 @@ createApplicationCommand({
             },
             {
               type: MessageComponentTypes.TextDisplay,
-              content: `## Information:\n- Minigame Threshold: **${fish.minigame_threshold}**\n- Health: **${fish.health}**\n- Weight: **${fish.weight.min} - ${fish.weight.max}**\n- Base Price: **${fish.base_price}**\n- Behavior: **${fish.behavior}**${fish.damage ? `\n- Damage: **${fish.damage}**` : ''}`,
+              content: `- Minigame Threshold: **${fish.minigame_threshold}**\n- Health: **${fish.health}**\n- Weight: **${fish.weight.min} - ${fish.weight.max}**\n- Base Price: **${fish.base_price}**\n- Behavior: **${fish.behavior}**${fish.damage ? `\n- Damage: **${fish.damage}**` : ''}`,
             },
           ],
         },
